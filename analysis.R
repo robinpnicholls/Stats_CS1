@@ -64,16 +64,16 @@ ggplot(zero_week_df, aes(x = VAS.at.inclusion, fill = as.factor(round(Age+5,-1))
   scale_fill_manual(values = c("#E2C290", "#9DC0BC", "#D6E5E3", "#F6E2E3", "#E6E5E3"), 
                     labels = c("20", "30", "40", "50", "60"))
 
-high_cas = zero_week_df$Age[zero_week_df$VAS.at.inclusion >= 5]
-low_cas = zero_week_df$Age[zero_week_df$VAS.at.inclusion < 5]
+high_vas = zero_week_df$Age[zero_week_df$VAS.at.inclusion >= 5]
+low_vas = zero_week_df$Age[zero_week_df$VAS.at.inclusion < 5]
 
-mean(high_cas, na.rm = TRUE)
-mean(low_cas, na.rm = TRUE)
+mean(high_vas, na.rm = TRUE)
+mean(low_vas, na.rm = TRUE)
 
 # F.test at 5% significance to decide if variances are equal (only use f.test if normally distributed)
-varience = (var.test(high_cas, low_cas, alternative = "two.sided")$p.value > 0.05) & 
+varience = (var.test(high_vas, low_vas, alternative = "two.sided")$p.value > 0.05) & 
   (shapiro.test(zero_week_df$Age)$p.value > 0.05)
-t.test(x = high_cas, y = low_cas, var.equal = varience)
+t.test(x = high_vas, y = low_vas, var.equal = varience)
 
 cov(VAS_df$Vas.12months, VAS_df$Age)
 cor.test(VAS_df$Vas.12months, VAS_df$Age, method = "pearson")
@@ -167,12 +167,12 @@ shapiro.test(outlier_removed_df$zero_weeks_IL.8)
 
 descdist(outlier_removed_df$zero_weeks_IL.8, discrete = FALSE, boot = 1000)
 
-high_cas = zero_week_df$zero_weeks_IL.8[zero_week_df$VAS.at.inclusion >= 5]
-low_cas = zero_week_df$zero_weeks_IL.8[zero_week_df$VAS.at.inclusion < 5]
+high_vas = zero_week_df$zero_weeks_IL.8[zero_week_df$VAS.at.inclusion >= 5]
+low_vas = zero_week_df$zero_weeks_IL.8[zero_week_df$VAS.at.inclusion < 5]
 # F.test at 5% significance to decide if variances are equal (only use f.test if normally distributed)
-varience = (var.test(high_cas, low_cas, alternative = "two.sided")$p.value > 0.05) & 
+varience = (var.test(high_vas, low_vas, alternative = "two.sided")$p.value > 0.05) & 
   (shapiro.test(zero_week_df$zero_weeks_IL.8)$p.value > 0.05)
-t.test(x = high_cas, y = low_cas, var.equal = varience)
+t.test(x = high_vas, y = low_vas, var.equal = varience)
 
 ggplot(zero_week_df, aes(x = zero_weeks_IL.8, y = Vas.12months)) + 
   geom_point() + 
@@ -214,12 +214,12 @@ shapiro.test(zero_week_df$zero_weeks_VEGF.A)
 
 descdist(zero_week_df$zero_weeks_VEGF.A, discrete = FALSE, boot = 1000)
 
-high_cas = zero_week_df$zero_weeks_VEGF.A[zero_week_df$VAS.at.inclusion >= 5]
-low_cas = zero_week_df$zero_weeks_VEGF.A[zero_week_df$VAS.at.inclusion < 5]
+high_vas = zero_week_df$zero_weeks_VEGF.A[zero_week_df$VAS.at.inclusion >= 5]
+low_vas = zero_week_df$zero_weeks_VEGF.A[zero_week_df$VAS.at.inclusion < 5]
 # F.test at 5% significance to decide if variances are equal (only use f.test if normally distributed)
-varience = (var.test(high_cas, low_cas, alternative = "two.sided")$p.value > 0.05) & 
+varience = (var.test(high_vas, low_vas, alternative = "two.sided")$p.value > 0.05) & 
   (shapiro.test(zero_week_df$zero_weeks_VEGF.A)$p.value > 0.05)
-t.test(x = high_cas, y = low_cas, var.equal = varience)
+t.test(x = high_vas, y = low_vas, var.equal = varience)
 
 ggplot(zero_week_df, aes(x = zero_weeks_VEGF.A, y = Vas.12months)) + 
   geom_point() + 
@@ -271,12 +271,12 @@ shapiro.test(zero_week_df$zero_weeks_OPG)
 
 descdist(zero_week_df$zero_weeks_OPG, discrete = FALSE, boot = 1000)
 
-high_cas = zero_week_df$zero_weeks_OPG[zero_week_df$VAS.at.inclusion >= 5]
-low_cas = zero_week_df$zero_weeks_OPG[zero_week_df$VAS.at.inclusion < 5]
+high_vas = zero_week_df$zero_weeks_OPG[zero_week_df$VAS.at.inclusion >= 5]
+low_vas = zero_week_df$zero_weeks_OPG[zero_week_df$VAS.at.inclusion < 5]
 # F.test at 5% significance to decide if variances are equal (only use f.test if normally distributed)
-varience = (var.test(high_cas, low_cas, alternative = "two.sided")$p.value > 0.05) & 
+varience = (var.test(high_vas, low_vas, alternative = "two.sided")$p.value > 0.05) & 
   (shapiro.test(zero_week_df$zero_weeks_OPG)$p.value > 0.05)
-t.test(x = high_cas, y = low_cas, var.equal = varience)
+t.test(x = high_vas, y = low_vas, var.equal = varience)
 
 ggplot(zero_week_df, aes(x = zero_weeks_OPG, y = Vas.12months)) + 
   geom_point() + 
@@ -328,12 +328,12 @@ shapiro.test(zero_week_df$zero_weeks_TGF.beta.1)
 
 descdist(zero_week_df$zero_weeks_TGF.beta.1, discrete = FALSE, boot = 1000)
 
-high_cas = zero_week_df$zero_weeks_TGF.beta.1[zero_week_df$VAS.at.inclusion >= 5]
-low_cas = zero_week_df$zero_weeks_TGF.beta.1[zero_week_df$VAS.at.inclusion < 5]
+high_vas = zero_week_df$zero_weeks_TGF.beta.1[zero_week_df$VAS.at.inclusion >= 5]
+low_vas = zero_week_df$zero_weeks_TGF.beta.1[zero_week_df$VAS.at.inclusion < 5]
 # F.test at 5% significance to decide if variances are equal (only use f.test if normally distributed)
-varience = (var.test(high_cas, low_cas, alternative = "two.sided")$p.value > 0.05) & 
+varience = (var.test(high_vas, low_vas, alternative = "two.sided")$p.value > 0.05) & 
   (shapiro.test(zero_week_df$zero_weeks_TGF.beta.1)$p.value > 0.05)
-t.test(x = high_cas, y = low_cas, var.equal = varience)
+t.test(x = high_vas, y = low_vas, var.equal = varience)
 
 ggplot(zero_week_df, aes(x = zero_weeks_TGF.beta.1, y = Vas.12months)) + 
   geom_point() + 
@@ -385,12 +385,12 @@ shapiro.test(zero_week_df$zero_weeks_IL.6)
 
 descdist(zero_week_df$zero_weeks_IL.6, discrete = FALSE, boot = 1000)
 
-high_cas = zero_week_df$zero_weeks_IL.6[zero_week_df$VAS.at.inclusion >= 5]
-low_cas = zero_week_df$zero_weeks_IL.6[zero_week_df$VAS.at.inclusion < 5]
+high_vas = zero_week_df$zero_weeks_IL.6[zero_week_df$VAS.at.inclusion >= 5]
+low_vas = zero_week_df$zero_weeks_IL.6[zero_week_df$VAS.at.inclusion < 5]
 # F.test at 5% significance to decide if variances are equal (only use f.test if normally distributed)
-varience = (var.test(high_cas, low_cas, alternative = "two.sided")$p.value > 0.05) & 
+varience = (var.test(high_vas, low_vas, alternative = "two.sided")$p.value > 0.05) & 
   (shapiro.test(zero_week_df$zero_weeks_IL.6)$p.value > 0.05)
-t.test(x = high_cas, y = low_cas, var.equal = varience)
+t.test(x = high_vas, y = low_vas, var.equal = varience)
 
 ggplot(zero_week_df, aes(x = zero_weeks_IL.6, y = Vas.12months)) + 
   geom_point() + 
@@ -437,12 +437,12 @@ shapiro.test(zero_week_df$zero_weeks_CXCL9)
 
 descdist(zero_week_df$zero_weeks_CXCL9, discrete = FALSE, boot = 1000)
 
-high_cas = zero_week_df$zero_weeks_CXCL9[zero_week_df$VAS.at.inclusion >= 5]
-low_cas = zero_week_df$zero_weeks_CXCL9[zero_week_df$VAS.at.inclusion < 5]
+high_vas = zero_week_df$zero_weeks_CXCL9[zero_week_df$VAS.at.inclusion >= 5]
+low_vas = zero_week_df$zero_weeks_CXCL9[zero_week_df$VAS.at.inclusion < 5]
 # F.test at 5% significance to decide if variances are equal (only use f.test if normally distributed)
-varience = (var.test(high_cas, low_cas, alternative = "two.sided")$p.value > 0.05) & 
+varience = (var.test(high_vas, low_vas, alternative = "two.sided")$p.value > 0.05) & 
   (shapiro.test(zero_week_df$zero_weeks_CXCL9)$p.value > 0.05)
-t.test(x = high_cas, y = low_cas, var.equal = varience)
+t.test(x = high_vas, y = low_vas, var.equal = varience)
 
 ggplot(zero_week_df, aes(x = zero_weeks_CXCL9, y = Vas.12months)) + 
   geom_point() + 
@@ -489,12 +489,12 @@ shapiro.test(zero_week_df$zero_weeks_CXCL1)
 
 descdist(zero_week_df$zero_weeks_CXCL1, discrete = FALSE, boot = 1000)
 
-high_cas = zero_week_df$zero_weeks_CXCL1[zero_week_df$VAS.at.inclusion >= 5]
-low_cas = zero_week_df$zero_weeks_CXCL1[zero_week_df$VAS.at.inclusion < 5]
+high_vas = zero_week_df$zero_weeks_CXCL1[zero_week_df$VAS.at.inclusion >= 5]
+low_vas = zero_week_df$zero_weeks_CXCL1[zero_week_df$VAS.at.inclusion < 5]
 # F.test at 5% significance to decide if variances are equal (only use f.test if normally distributed)
-varience = (var.test(high_cas, low_cas, alternative = "two.sided")$p.value > 0.05) & 
+varience = (var.test(high_vas, low_vas, alternative = "two.sided")$p.value > 0.05) & 
   (shapiro.test(zero_week_df$zero_weeks_CXCL1)$p.value > 0.05)
-t.test(x = high_cas, y = low_cas, var.equal = varience)
+t.test(x = high_vas, y = low_vas, var.equal = varience)
 
 ggplot(zero_week_df, aes(x = zero_weeks_CXCL1, y = Vas.12months)) + 
   geom_point() + 
@@ -531,12 +531,12 @@ shapiro.test(zero_week_df$zero_weeks_IL.18)
 
 descdist(zero_week_df$zero_weeks_IL.18, discrete = FALSE, boot = 1000)
 
-high_cas = zero_week_df$zero_weeks_IL.18[zero_week_df$VAS.at.inclusion >= 5]
-low_cas = zero_week_df$zero_weeks_IL.18[zero_week_df$VAS.at.inclusion < 5]
+high_vas = zero_week_df$zero_weeks_IL.18[zero_week_df$VAS.at.inclusion >= 5]
+low_vas = zero_week_df$zero_weeks_IL.18[zero_week_df$VAS.at.inclusion < 5]
 # F.test at 5% significance to decide if variances are equal (only use f.test if normally distributed)
-varience = (var.test(high_cas, low_cas, alternative = "two.sided")$p.value > 0.05) & 
+varience = (var.test(high_vas, low_vas, alternative = "two.sided")$p.value > 0.05) & 
   (shapiro.test(zero_week_df$zero_weeks_IL.18)$p.value > 0.05)
-t.test(x = high_cas, y = low_cas, var.equal = varience)
+t.test(x = high_vas, y = low_vas, var.equal = varience)
 
 ggplot(zero_week_df, aes(x = zero_weeks_IL.18, y = Vas.12months)) + 
   geom_point() + 
@@ -573,24 +573,24 @@ shapiro.test(zero_week_df$zero_weeks_CSF.1)
 
 descdist(zero_week_df$zero_weeks_CSF.1, discrete = FALSE, boot = 1000)
 
-high_cas = zero_week_df$zero_weeks_CSF.1[zero_week_df$VAS.at.inclusion >= 5]
-low_cas = zero_week_df$zero_weeks_CSF.1[zero_week_df$VAS.at.inclusion < 5]
+high_vas = zero_week_df$zero_weeks_CSF.1[zero_week_df$VAS.at.inclusion >= 5]
+low_vas = zero_week_df$zero_weeks_CSF.1[zero_week_df$VAS.at.inclusion < 5]
 # F.test at 5% significance to decide if variances are equal (only use f.test if normally distributed)
-varience = (var.test(high_cas, low_cas, alternative = "two.sided")$p.value > 0.05) & 
+varience = (var.test(high_vas, low_vas, alternative = "two.sided")$p.value > 0.05) & 
   (shapiro.test(zero_week_df$zero_weeks_CSF.1)$p.value > 0.05)
-t.test(x = high_cas, y = low_cas, var.equal = varience, conf.level = 0.95)
+t.test(x = high_vas, y = low_vas, var.equal = varience, conf.level = 0.95)
 
 ggplot(zero_week_df, aes(x = zero_weeks_CSF.1, y = Vas.12months)) + 
   geom_point() + 
   geom_abline(intercept = 0, slope = 1, color = "green")
 
 working = female_smoker
-high_cas = working$zero_weeks_CSF.1[working$VAS.at.inclusion >= 5]
-low_cas = working$zero_weeks_CSF.1[working$VAS.at.inclusion < 5]
+high_vas = working$zero_weeks_CSF.1[working$VAS.at.inclusion >= 5]
+low_vas = working$zero_weeks_CSF.1[working$VAS.at.inclusion < 5]
 # F.test at 5% significance to decide if variances are equal (only use f.test if normally distributed)
-varience = (var.test(high_cas, low_cas, alternative = "two.sided")$p.value > 0.05) & 
+varience = (var.test(high_vas, low_vas, alternative = "two.sided")$p.value > 0.05) & 
   (shapiro.test(working$zero_weeks_CSF.1)$p.value > 0.05)
-t.test(x = high_cas, y = low_cas, var.equal = varience)
+t.test(x = high_vas, y = low_vas, var.equal = varience)
 
 ggplot(zero_week_df, aes(x = zero_weeks_CSF.1, y = Vas.12months)) + 
   geom_point() + 
